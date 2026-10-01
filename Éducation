@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NOVA INSTITUTE - École de formation professionnelle. Développez vos compétences, apprenez un métier, construisez votre avenir.">
+    <title>NOVA INSTITUTE - Formation Professionnelle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/fontsource/fonts/playfair-display@latest/latin-700.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-400.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-600.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-700.min.css" rel="stylesheet">
+    <style>
+        /* ============================================
+           VARIABLES & RESET
+           ============================================ */
+        :root {
+            --brown-dark: #3E2723;
+            --brown-primary: #5D4037;
+            --brown-medium: #795548;
+            --brown-light: #8D6E63;
+            --beige-light: #F5F0E8;
+            --beige-cream: #FAF7F2;
+            --white: #FFFFFF;
+            --gold: #C9A961;
+            --gold-light: #D4B876;
+            --gold-dark: #A68B4B;
+            --text-dark: #2C1810;
+            --text-medium: #5D4037;
+            --text-light: #8D6E63;
+            --shadow-sm: 0 2px 8px rgba(62, 39, 35, 0.08);
+            --shadow-md: 0 4px 16px rgba(62, 39, 35, 0.12);
+            --shadow-lg: 0 8px 32px rgba(62, 39, 35, 0.16);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background: var(--beige-cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        input, select, textarea {
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        /* ============================================
+           BANDEAU ANNONCE
+           ============================================ */
+        .announcement-bar {
+            background: linear-gradient(90deg, var(--brown-dark), var(--brown-primary));
+            color: var(--gold-light);
+            padding: 10px 0;
+            overflow: hidden;
+            position: relative;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .announcement-text {
+            display: inline-block;
+            white-space: nowrap;
+            animation: scrollText 30s linear infinite;
+            padding-left: 100%;
+        }
+
+        @keyframes scrollText {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* ============================================
+           HEADER & NAVIGATION
+           ============================================ */
+        .header {
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--brown-primary), var(--gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--brown-dark);
+        }
+
+        .logo-text span {
+            color: var(--gold);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--text-medium);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--brown-primary);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, var(--brown-primary), var(--brown-dark));
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--brown-dark);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown-primary) 50%, var(--brown-medium) 100%);
+            color: white;
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A961' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold-light);
+        }
+
+        .hero-text h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            color: var(--beige-light);
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: var(--beige-light);
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--brown-dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(201, 169, 97, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gold);
+            color: var(--brown-dark);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-illustration {
+            width: 100%;
+            max-width: 500px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.2), rgba(255, 255, 255, 0.1));
+            border-radius: var(--radius-lg);
+            border: 2px solid rgba(201, 169, 97, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-illustration svg {
+            width: 80%;
+            height: 80%;
+        }
+
+        /* ============================================
+           SECTIONS GENERALES
+           ============================================ */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--brown-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-title .divider {
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            margin: 1rem auto;
+        }
+
+        /* ============================================
+           CARTES FORMATIONS
+           ============================================ */
+        .formations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .formation-card {
+            background: white;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .formation-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .formation-image {
+            height: 220px;
+            background: linear-gradient(135deg, var(--brown-light), var(--brown-primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .formation-image svg {
+            width: 60%;
+            height: 60%;
+            opacity: 0.9;
+        }
+
+        .formation-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--gold);
+            color: var(--brown-dark);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .formation-content {
+            padding: 1.5rem;
+        }
+
+        .formation-content h3 {
+            font-size: 1.4rem;
+            color: var(--brown-dark);
+            margin-bottom: 0.8rem;
+        }
+
+        .formation-content p {
+            color: var(--text-medium);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .formation-info {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .formation-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .formation-price {
+            background: var(--beige-light);
+            padding: 1rem;
+            border-radius: var(--radius-sm);
+            margin-bottom: 1rem;
+        }
+
+        .formation-price strong {
+            color: var(--brown-dark);
+            font-size: 1.2rem;
+        }
+
+        .formation-buttons {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .formation-buttons .btn {
+            flex: 1;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            min-width: 100px;
+        }
+
+        /* ============================================
+           PAGE FORMATION DETAIL
+           ============================================ */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .formation-detail {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .formation-header {
+            background: linear-gradient(135deg, var(--brown-dark), var(--brown-primary));
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: var(--radius-lg);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .formation-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold-light);
+        }
+
+        .formation-header p {
+            font-size: 1.2rem;
+            color: var(--beige-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .formation-details-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .formation-main h2 {
+            color: var(--brown-dark);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .formation-main h3 {
+            color: var(--brown-primary);
+            margin: 2rem 0 1rem;
+            font-size: 1.4rem;
+        }
+
+        .formation-main ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .formation-main ul li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-medium);
+        }
+
+        .formation-main ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        .formation-sidebar {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .sidebar-price {
+            background: var(--beige-light);
+            padding: 1.5rem;
+            border-radius: var(--radius-sm);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .sidebar-price .price-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-price .price-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--brown-dark);
+        }
+
+        .sidebar-info {
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar-info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--beige-light);
+        }
+
+        .sidebar-info-item:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-info-item span:first-child {
+            color: var(--text-light);
+        }
+
+        .sidebar-info-item span:last-child {
+            font-weight: 600;
+            color: var(--brown-dark);
+        }
+
+        .sidebar-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .sidebar-buttons .btn {
+            width: 100%;
+        }
+
+        /* ============================================
+           GALERIE
+           ============================================ */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-item {
+            height: 200px;
+            background: linear-gradient(135deg, var(--brown-light), var(--brown-medium));
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item svg {
+            width: 60%;
+            height: 60%;
+            opacity: 0.8;
+        }
+
+        /* ============================================
+           FORMULAIRES
+           ============================================ */
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: var(--brown-dark);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-medium);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--beige-light);
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            background: var(--beige-cream);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: white;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--brown-primary), var(--brown-dark));
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ============================================
+           DASHBOARD
+           ============================================ */
+        .dashboard {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .dashboard-header {
+            background: linear-gradient(135deg, var(--brown-dark), var(--brown-primary));
+            color: white;
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold-light);
+        }
+
+        .dashboard-header p {
+            color: var(--beige-light);
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .dashboard-card h3 {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .dashboard-card p {
+            color: var(--brown-dark);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .progress-section {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 2rem;
+        }
+
+        .progress-section h3 {
+            color: var(--brown-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-bar {
+            background: var(--beige-light);
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+            border-radius: 15px;
+            transition: width 1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .modules-list {
+            list-style: none;
+        }
+
+        .modules-list li {
+            padding: 1rem;
+            border-bottom: 1px solid var(--beige-light);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .module-check {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .module-check.completed {
+            background: var(--gold);
+            color: white;
+        }
+
+        .module-check.completed::after {
+            content: '✓';
+        }
+
+        /* ============================================
+           STATISTIQUES
+           ============================================ */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-label {
+            color: var(--text-medium);
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* ============================================
+           PROFESSEURS
+           ============================================ */
+        .professeurs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .professeur-card {
+            background: white;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .professeur-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .professeur-image {
+            height: 250px;
+            background: linear-gradient(135deg, var(--brown-light), var(--brown-primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .professeur-image svg {
+            width: 50%;
+            height: 50%;
+            opacity: 0.8;
+        }
+
+        .professeur-info {
+            padding: 1.5rem;
+        }
+
+        .professeur-info h3 {
+            color: var(--brown-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .professeur-info .specialty {
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .professeur-info p {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+        }
+
+        /* ============================================
+           HORAIRES
+           ============================================ */
+        .horaires-table {
+            width: 100%;
+            background: white;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .horaires-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .horaires-table th {
+            background: var(--brown-primary);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .horaires-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--beige-light);
+        }
+
+        .horaires-table tr:hover {
+            background: var(--beige-cream);
+        }
+
+        /* ============================================
+           CONTACT
+           ============================================ */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--beige-light);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--beige-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .contact-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: var(--brown-dark);
+            color: white;
+            padding: 3rem 2rem 1rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--gold-light);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            padding: 0.5rem 0;
+        }
+
+        .footer-section a {
+            color: var(--beige-light);
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--beige-light);
+        }
+
+        /* ============================================
+           NOTIFICATIONS
+           ============================================ */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            z-index: 10000;
+            max-width: 400px;
+            transform: translateX(450px);
+            transition: transform 0.3s ease;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.success {
+            border-left: 4px solid #4CAF50;
+        }
+
+        .notification.error {
+            border-left: 4px solid #f44336;
+        }
+
+        .notification.info {
+            border-left: 4px solid var(--gold);
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 968px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: 5rem 2rem;
+                transition: right 0.3s ease;
+                box-shadow: var(--shadow-lg);
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text h2 {
+                font-size: 1.4rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .formation-details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .formation-sidebar {
+                position: static;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 3rem 1rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .form-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .formation-buttons {
+                flex-direction: column;
+            }
+
+            .formation-buttons .btn {
+                width: 100%;
+            }
+        }
+
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--brown-primary);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .back-btn:hover {
+            color: var(--gold);
+        }
+    </style>
+</head>
+<body>
+    <!-- BANDEAU ANNONCE -->
+    <div class="announcement-bar">
+        <div class="announcement-text" id="announcementText"></div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">N</div>
+                <div class="logo-text">NOVA <span>INSTITUTE</span></div>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#" onclick="showPage('home')">🏠 Accueil</a></li>
+                <li><a href="#" onclick="showPage('about')">🎯 À Propos</a></li>
+                <li><a href="#" onclick="showPage('formations')">📚 Formations</a></li>
+                <li><a href="#" onclick="showPage('professeurs')">👨🏽‍🏫 Professeurs</a></li>
+                <li><a href="#" onclick="showPage('horaires')">🕐 Horaires</a></li>
+                <li><a href="#" onclick="showPage('stats')">📈 Statistiques</a></li>
+                <li><a href="#" onclick="showPage('contact')">📞 Contact</a></li>
+                <li><a href="#" onclick="showPage('login')" class="nav-btn">👨🏽‍🎓 Espace Étudiant</a></li>
+                <li><a href="#" onclick="showPage('inscription')" class="nav-btn">📝 Inscription</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- PAGE ACCUEIL -->
+    <div id="page-home" class="page active">
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>NOVA INSTITUTE</h1>
+                    <h2>Développez vos compétences. Apprenez un métier. Construisez votre avenir.</h2>
+                    <p>NOVA INSTITUTE vous accompagne à travers des formations pratiques et professionnelles conçues pour développer vos compétences et vous permettre de transformer vos connaissances en opportunités.</p>
+                    <div class="hero-buttons">
+                        <a href="#" onclick="showPage('formations')" class="btn btn-primary">VOIR LES FORMATIONS</a>
+                        <a href="#" onclick="showPage('inscription')" class="btn btn-secondary">S'INSCRIRE</a>
+                        <a href="#" onclick="showPage('login')" class="btn btn-secondary">ESPACE ÉTUDIANT</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-illustration">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#C9A961;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#D4B876;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <circle cx="100" cy="80" r="30" fill="url(#grad1)"/>
+                            <path d="M 60 120 Q 100 100 140 120 L 140 160 L 60 160 Z" fill="url(#grad1)"/>
+                            <rect x="70" y="130" width="60" height="5" fill="white" opacity="0.8"/>
+                            <rect x="75" y="140" width="50" height="5" fill="white" opacity="0.8"/>
+                            <rect x="80" y="150" width="40" height="5" fill="white" opacity="0.8"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRESENTATION -->
+        <section class="section">
+            <div class="section-title">
+                <h2>Présentation de NOVA INSTITUTE</h2>
+                <div class="divider"></div>
+                <p>Une école de formation professionnelle orientée vers la pratique et l'excellence</p>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.1rem; color: var(--text-medium); line-height: 1.8; margin-bottom: 2rem;">
+                    NOVA INSTITUTE est une école de formation professionnelle dédiée au développement des compétences pratiques. Nous proposons des formations de qualité dans divers domaines professionnels, permettant à nos étudiants d'acquérir des savoir-faire concrets et directement applicables.
+                </p>
+                <p style="font-size: 1.1rem; color: var(--text-medium); line-height: 1.8;">
+                    Notre approche pédagogique combine théorie et pratique, avec un accent mis sur l'accompagnement personnalisé et l'excellence professionnelle.
+                </p>
+            </div>
+        </section>
+
+        <!-- FORMATIONS APERÇU -->
+        <section class="section" style="background: var(--beige-light);">
+            <div class="section-title">
+                <h2>Nos Formations</h2>
+                <div class="divider"></div>
+                <p>Découvrez nos formations professionnelles pratiques</p>
+            </div>
+            <div class="formations-grid" id="formationsGrid"></div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#" onclick="showPage('formations')" class="btn btn-primary">VOIR TOUTES LES FORMATIONS</a>
+            </div>
+        </section>
+
+        <!-- POURQUOI NOUS -->
+        <section class="section">
+            <div class="section-title">
+                <h2>Pourquoi choisir NOVA INSTITUTE ?</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="formations-grid">
+                <div class="formation-card" style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎯</div>
+                    <h3 style="color: var(--brown-dark); margin-bottom: 1rem;">Formation Pratique</h3>
+                    <p style="color: var(--text-medium);">Apprentissage concret et directement applicable dans votre vie professionnelle</p>
+                </div>
+                <div class="formation-card" style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">👨🏽‍🏫</div>
+                    <h3 style="color: var(--brown-dark); margin-bottom: 1rem;">Professeurs Qualifiés</h3>
+                    <p style="color: var(--text-medium);">Enseignants expérimentés et passionnés par leur domaine</p>
+                </div>
+                <div class="formation-card" style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">💼</div>
+                    <h3 style="color: var(--brown-dark); margin-bottom: 1rem;">Opportunités Professionnelles</h3>
+                    <p style="color: var(--text-medium);">Développez des compétences recherchées sur le marché</p>
+                </div>
+                <div class="formation-card" style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🤝</div>
+                    <h3 style="color: var(--brown-dark); margin-bottom: 1rem;">Accompagnement</h3>
+                    <p style="color: var(--text-medium);">Suivi personnalisé tout au long de votre formation</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATISTIQUES -->
+        <section class="section" style="background: linear-gradient(135deg, var(--brown-dark), var(--brown-primary)); color: white;">
+            <div class="section-title">
+                <h2 style="color: var(--gold-light);">Nos Statistiques</h2>
+                <div class="divider"></div>
+                <p style="color: var(--beige-light);">Des chiffres qui témoignent de notre engagement</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+                    <div class="stat-number" data-target="500">0</div>
+                    <div class="stat-label" style="color: var(--beige-light);">Étudiants inscrits</div>
+                </div>
+                <div class="stat-card" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+                    <div class="stat-number" data-target="6">0</div>
+                    <div class="stat-label" style="color: var(--beige-light);">Formations disponibles</div>
+                </div>
+                <div class="stat-card" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+                    <div class="stat-number" data-target="12">0</div>
+                    <div class="stat-label" style="color: var(--beige-light);">Professeurs qualifiés</div>
+                </div>
+                <div class="stat-card" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+                    <div class="stat-number" data-target="95">0</div>
+                    <div class="stat-label" style="color: var(--beige-light);">% de satisfaction</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- APPEL INSCRIPTION -->
+        <section class="section" style="text-align: center;">
+            <h2 style="color: var(--brown-dark); font-size: 2.5rem; margin-bottom: 1rem;">Prêt à commencer votre formation ?</h2>
+            <p style="color: var(--text-medium); font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Rejoignez NOVA INSTITUTE et développez vos compétences professionnelles dès aujourd'hui
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#" onclick="showPage('inscription')" class="btn btn-primary">S'INSCRIRE MAINTENANT</a>
+                <a href="https://wa.me/33552907" target="_blank" class="btn btn-whatsapp">CONTACTER SUR WHATSAPP</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- PAGE À PROPOS -->
+    <div id="page-about" class="page">
+        <section class="section">
+            <div class="section-title">
+                <h2>À Propos de NOVA INSTITUTE</h2>
+                <div class="divider"></div>
+            </div>
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div style="background: white; padding: 3rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); margin-bottom: 2rem;">
+                    <h3 style="color: var(--brown-dark); font-size: 1.8rem; margin-bottom: 1rem;">Qui sommes-nous ?</h3>
+                    <p style="color: var(--text-medium); line-height: 1.8; margin-bottom: 1.5rem;">
+                        NOVA INSTITUTE est une école de formation professionnelle orientée vers la pratique et le développement des compétences. Nous croyons fermement que chaque individu possède un potentiel unique qui mérite d'être développé à travers un apprentissage concret et de qualité.
+                    </p>
+                    <p style="color: var(--text-medium); line-height: 1.8;">
+                        Notre équipe de professionnels qualifiés s'engage à offrir des formations adaptées aux besoins du marché, permettant à nos étudiants d'acquérir des compétences directement applicables dans leur vie professionnelle et entrepreneuriale.
+                    </p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                    <div style="background: white; padding: 2rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+                        <h3 style="color: var(--gold); margin-bottom: 1rem;">🎯 Notre Mission</h3>
+                        <p style="color: var(--text-medium); line-height: 1.8;">
+                            Offrir des formations pratiques, accessibles et professionnelles permettant aux participants d'acquérir des compétences utiles dans leur vie professionnelle et entrepreneuriale.
+                        </p>
+                    </div>
+                    <div style="background: white; padding: 2rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+                        <h3 style="color: var(--gold); margin-bottom: 1rem;">👁️ Notre Vision</h3>
+                        <p style="color: var(--text-medium); line-height: 1.8;">
+                            Devenir une référence dans la formation professionnelle en proposant des apprentissages pratiques, modernes et adaptés aux besoins du marché.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="background: white; padding: 3rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+                    <h3 style="color: var(--brown-dark); font-size: 1.8rem; margin-bottom: 2rem; text-align: center;">Nos Valeurs</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                        <div style="text-align: center; padding: 1.5rem; background: var(--beige-light); border-radius: var(--radius-sm);">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">⭐</div>
+                            <strong style="color: var(--brown-dark);">Professionnalisme</strong>
+                        </div>
+                        <div style="text-align: center; padding: 1.5rem; background: var(--beige-light); border-radius: var(--radius-sm);">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">📏</div>
+                            <strong style="color: var(--brown-dark);">Discipline</strong>
+                        </div>
+                        <div style="text-align: center; padding: 1.5rem; background: var(--beige-light); border-radius: var(--radius-sm);">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏆</div>
+                            <strong style="color: var(--brown-dark);">Excellence</strong>
+                        </div>
+                        <div style="text-align: center; padding: 1.5rem; background: var(--beige-light); border-radius: var(--radius-sm);">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔧</div>
+                            <strong style="color: var(--brown-dark);">Pratique</strong>
+                        </div>
+                        <div style="text-align: center; padding: 1.5rem; background: var(--beige-light); border-radius: var(--radius-sm);">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">💡</div>
+                            <strong style="color: var(--brown-dark);">Innovation</strong>
+                        </div>
+                        <div style="text-align: center; padding: 1.5rem; background: var(--beige-light); border-radius: var(--radius-sm);">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🤝</div>
+                            <strong style="color: var(--brown-dark);">Accompagnement</strong>
+                        </div>
+                        <div style="text-align: center; padding: 1.5rem; background: var(--beige-light); border-radius: var(--radius-sm);">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🙏</div>
+                            <strong style="color: var(--brown-dark);">Respect</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PAGE FORMATIONS -->
+    <div id="page-formations" class="page">
+        <section class="section">
+            <div class="section-title">
+                <h2>Catalogue des Formations</h2>
+                <div class="divider"></div>
+                <p>Découvrez toutes nos formations professionnelles</p>
+            </div>
+            <div class="formations-grid" id="allFormationsGrid"></div>
+        </section>
+    </div>
+
+    <!-- PAGE DETAIL FORMATION -->
+    <div id="page-formation-detail" class="page">
+        <div class="formation-detail" id="formationDetailContent"></div>
+    </div>
+
+    <!-- PAGE INSCRIPTION -->
+    <div id="page-inscription" class="page">
+        <section class="section">
+            <div class="form-container">
+                <h2>📝 Formulaire d'Inscription</h2>
+                <form id="inscriptionForm" onsubmit="handleInscription(event)">
+                    <div class="form-group">
+                        <label>Nom complet *</label>
+                        <input type="text" id="insc_nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" id="insc_email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Numéro de téléphone *</label>
+                        <input type="tel" id="insc_telephone" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Adresse *</label>
+                        <input type="text" id="insc_adresse" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Formation choisie *</label>
+                        <select id="insc_formation" required onchange="updatePaymentInfo()">
+                            <option value="">-- Sélectionnez une formation --</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Mot de passe *</label>
+                        <input type="password" id="insc_password" required minlength="6">
+                        <small style="color: var(--text-light);">Minimum 6 caractères</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Confirmer le mot de passe *</label>
+                        <input type="password" id="insc_password_confirm" required>
+                    </div>
+                    <button type="submit" class="form-submit">S'INSCRIRE</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- PAGE PAIEMENT -->
+    <div id="page-paiement" class="page">
+        <section class="section">
+            <div class="form-container">
+                <h2>💳 Finaliser mon inscription</h2>
+                <form id="paiementForm" onsubmit="handlePaiement(event)">
+                    <div class="form-group">
+                        <label>Nom complet</label>
+                        <input type="text" id="pay_nom" required readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="pay_email" required readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Téléphone</label>
+                        <input type="tel" id="pay_telephone" required readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Formation choisie</label>
+                        <input type="text" id="pay_formation" required readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Frais d'inscription (HTG)</label>
+                        <input type="text" id="pay_inscription" required readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Frais de participation (HTG)</label>
+                        <input type="text" id="pay_participation" required readonly>
+                    </div>
+                    <div class="form-group">
+                        <label><strong>Total à payer (HTG)</strong></label>
+                        <input type="text" id="pay_total" required readonly style="font-weight: bold; font-size: 1.2rem; color: var(--brown-dark);">
+                    </div>
+                    <div class="form-group">
+                        <label>Moyen de paiement *</label>
+                        <select id="pay_moyen" required>
+                            <option value="">-- Sélectionnez --</option>
+                            <option value="MonCash">MonCash (44699777)</option>
+                            <option value="NatCash">NatCash (58046408)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Numéro utilisé pour le paiement *</label>
+                        <input type="tel" id="pay_numero" required placeholder="Votre numéro de téléphone">
+                    </div>
+                    <div class="form-group">
+                        <label>Référence de transaction *</label>
+                        <input type="text" id="pay_reference" required placeholder="Numéro de transaction">
+                    </div>
+                    <div class="form-group">
+                        <label>Date du paiement *</label>
+                        <input type="date" id="pay_date" required>
+                    </div>
+                    <div style="background: var(--beige-light); padding: 1.5rem; border-radius: var(--radius-sm); margin-bottom: 1.5rem;">
+                        <p style="color: var(--text-medium); font-size: 0.95rem;">
+                            <strong>⚠️ Important :</strong> Après votre paiement, envoyez les informations demandées sur WhatsApp afin que votre inscription puisse être vérifiée.
+                        </p>
+                    </div>
+                    <button type="submit" class="form-submit">ENVOYER MA DEMANDE SUR WHATSAPP</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- PAGE CONNEXION -->
+    <div id="page-login" class="page">
+        <section class="section">
+            <div class="form-container">
+                <h2>👨🏽‍🎓 Espace Étudiant</h2>
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label>Email ou identifiant *</label>
+                        <input type="text" id="login_email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mot de passe *</label>
+                        <input type="password" id="login_password" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Code d'accès de la formation *</label>
+                        <input type="text" id="login_code" required placeholder="Code fourni par NOVA INSTITUTE">
+                    </div>
+                    <button type="submit" class="form-submit">SE CONNECTER</button>
+                </form>
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <a href="#" onclick="showPage('inscription')" style="color: var(--gold); font-weight: 600;">Pas encore inscrit ? Inscrivez-vous ici</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PAGE DASHBOARD -->
+    <div id="page-dashboard" class="page">
+        <div class="dashboard" id="dashboardContent"></div>
+    </div>
+
+    <!-- PAGE PROFESSEURS -->
+    <div id="page-professeurs" class="page">
+        <section class="section">
+            <div class="section-title">
+                <h2>Nos Professeurs</h2>
+                <div class="divider"></div>
+                <p>Une équipe de professionnels qualifiés et passionnés</p>
+            </div>
+            <div class="professeurs-grid" id="professeursGrid"></div>
+        </section>
+    </div>
+
+    <!-- PAGE HORAIRES -->
+    <div id="page-horaires" class="page">
+        <section class="section">
+            <div class="section-title">
+                <h2>Horaires des Formations</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="horaires-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Formation</th>
